@@ -279,6 +279,7 @@
     padding: 22px;
     box-shadow: var(--shadow-sm);
     margin-bottom: 20px;
+    min-width: 0;
   }
   .panel-header {
     display: flex;
@@ -687,18 +688,109 @@
     background: var(--surface-hover);
   }
 
-  /* Form Demo Grid */
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 12px;
+  /* Contact & Integration Section */
+  .contact-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--line);
   }
-  .form-group label {
-    display: block;
-    font-size: 0.78rem;
-    font-weight: 600;
+  .contact-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .contact-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), #1d4ed8);
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .contact-name {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 750;
+    color: var(--ink);
+  }
+  .contact-role {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
     color: var(--muted);
-    margin-bottom: 4px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+  }
+  .contact-card {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .contact-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .contact-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .contact-icon.wa {
+    background: rgba(37, 211, 102, 0.16);
+    color: #16a34a;
+  }
+  html[data-theme="dark"] .contact-icon.wa {
+    color: #4ade80;
+  }
+  .contact-card-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .contact-card-value {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--ink);
+    word-break: break-word;
+  }
+  button.btn.whatsapp, a.btn.whatsapp {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: #ffffff;
+  }
+  button.btn.whatsapp:hover, a.btn.whatsapp:hover {
+    background: #15803d;
+    border-color: #15803d;
   }
 
   .demo-bar {
@@ -938,10 +1030,6 @@
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"/></svg>
               Descargar .CSV
             </button>
-            <button type="button" id="btnFillDemoForm" class="btn secondary sm hide-in-embed">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-              Auto-llenar Formulario
-            </button>
             <button type="button" id="btnSendCallback" class="btn" hidden>
               <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               Enviar a Aplicación
@@ -973,7 +1061,7 @@
           </p>
         </div>
         <div class="actions">
-          <input type="search" id="historySearch" class="text-input" placeholder="Buscar por cédula, nombre o RH…" style="width:230px">
+          <input type="search" id="historySearch" class="text-input" placeholder="Buscar por cédula, nombre o RH…" style="width:265px;max-width:100%">
           <button type="button" id="btnExportCsv" class="btn secondary sm">Exportar CSV (Excel)</button>
           <button type="button" id="btnExportJson" class="btn secondary sm">Exportar JSON</button>
           <button type="button" id="btnClearAllHistory" class="btn danger sm">Vaciar historial</button>
@@ -1003,122 +1091,128 @@
     </section>
   </div>
 
-  <!-- ==================== TAB 3: INTEGRACIÓN Y API ==================== -->
+  <!-- ==================== TAB 3: INTEGRACIÓN Y CONTACTO ==================== -->
   <div id="tab-integration" class="tab-view hide-in-embed" hidden>
-    <!-- Demo Interactiva de Auto-llenado -->
     <section class="panel">
-      <div class="panel-header">
-        <div>
-          <h2 class="panel-title">Demo en Vivo: Auto-llenado de Formulario Web</h2>
-          <p style="margin:2px 0 0;font-size:0.84rem;color:var(--muted)">
-            Con <code>fillFormWithCedula(form, data)</code> puedes poblar automáticamente cualquier formulario de tu ERP, clínica, hotel o ecommerce.
-          </p>
+      <div class="contact-hero">
+        <div class="contact-profile">
+          <div class="contact-avatar" id="contactAvatar">JM</div>
+          <div>
+            <h2 class="contact-name" id="contactDisplayName">Juan Manuel Cardona Molina</h2>
+            <p class="contact-role">Integraciones a medida · Licencia comercial · Desarrollo de software</p>
+          </div>
         </div>
-        <button type="button" id="btnTestFillNow" class="btn sm">Rellenar con lectura actual</button>
+        <a id="btnHeroWhatsapp" class="btn whatsapp" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          Cotizar integración por WhatsApp
+        </a>
       </div>
 
-      <form id="demoClientForm" class="form-grid" onsubmit="event.preventDefault()">
-        <div class="form-group">
-          <label>Tipo de Documento</label>
-          <input type="text" name="documentType" class="text-input" placeholder="CC / TI">
+      <p style="margin:0 0 16px;font-size:0.9rem;color:var(--ink-soft)">
+        ¿Quieres integrar este lector de cédula colombiana en tu <strong>ERP, CRM, hotel, clínica, portería, gimnasio o aplicación web/móvil</strong>? Escríbeme por cualquiera de estos medios para cotizar una integración a medida o licencia comercial.
+      </p>
+
+      <div class="grid-3" style="margin-bottom:20px">
+        <div class="info-card">
+          <h3>Integración Web / API</h3>
+          <p>Conecto el lector PDF417 y MRZ directamente a tus formularios en React, Vue, PHP, Laravel, WordPress o sistemas internos.</p>
         </div>
-        <div class="form-group">
-          <label>Número de Documento</label>
-          <input type="text" name="documentNumber" class="text-input" placeholder="Ej. 1017929467">
+        <div class="info-card">
+          <h3>Recepciones y Pistolas USB</h3>
+          <p>Configuración de sistemas de registro de visitantes con pistola lectora 2D USB, control de ingresos y exportación automática a Excel.</p>
         </div>
-        <div class="form-group">
-          <label>Nombres</label>
-          <input type="text" name="nombres" class="text-input" placeholder="Nombres">
+        <div class="info-card">
+          <h3>Licencia Comercial</h3>
+          <p>Licenciamiento para uso en software privado sin restricciones de código abierto, más soporte técnico directo.</p>
         </div>
-        <div class="form-group">
-          <label>Apellidos</label>
-          <input type="text" name="apellidos" class="text-input" placeholder="Apellidos">
+      </div>
+
+      <div id="contactStatusBox" class="status-box" role="status" aria-live="polite" hidden style="margin-top:0;margin-bottom:14px"></div>
+
+      <div class="contact-grid">
+        <!-- WhatsApp -->
+        <div class="contact-card" id="cardWhatsapp">
+          <div class="contact-card-head">
+            <div class="contact-icon wa">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">WhatsApp (+57)</div>
+              <div class="contact-card-value" id="contactWhatsappText">+57 300 000 0000</div>
+            </div>
+          </div>
+          <div class="actions">
+            <a id="contactWhatsappLink" class="btn whatsapp sm" href="#" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Fecha de Nacimiento</label>
-          <input type="date" name="fecha_nacimiento" class="text-input">
+
+        <!-- Correo electrónico -->
+        <div class="contact-card" id="cardEmail">
+          <div class="contact-card-head">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">Correo Electrónico</div>
+              <div class="contact-card-value" id="contactEmailText">contacto@ejemplo.com</div>
+            </div>
+          </div>
+          <div class="actions">
+            <a id="contactEmailLink" class="btn sm" href="#">Enviar correo</a>
+            <button type="button" id="btnCopyEmail" class="btn secondary sm">Copiar</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Edad</label>
-          <input type="number" name="edad" class="text-input" placeholder="Años">
+
+        <!-- GitHub -->
+        <div class="contact-card" id="cardGithub">
+          <div class="contact-card-head">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a10.9 10.9 0 015.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.24 2.75.12 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.26 5.67.42.36.79 1.07.79 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.66.79.55A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">GitHub</div>
+              <div class="contact-card-value" id="contactGithubText">@JuanManuelCM3331</div>
+            </div>
+          </div>
+          <div class="actions">
+            <a id="contactGithubLink" class="btn secondary sm" href="https://github.com/JuanManuelCM3331" target="_blank" rel="noopener noreferrer">Ver perfil</a>
+            <a id="contactRepoLink" class="btn secondary sm" href="https://github.com/JuanManuelCM3331/Api-Lector-de-Cedula-Colombian" target="_blank" rel="noopener noreferrer">Repositorio</a>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Sexo</label>
-          <input type="text" name="sexo" class="text-input" placeholder="M / F">
+
+        <!-- LinkedIn -->
+        <div class="contact-card" id="cardLinkedin">
+          <div class="contact-card-head">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5A2.48 2.48 0 002.5 6a2.48 2.48 0 002.48 2.5A2.48 2.48 0 007.46 6a2.48 2.48 0 00-2.48-2.5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95V21h-4V9z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">LinkedIn</div>
+              <div class="contact-card-value" id="contactLinkedinText">Perfil profesional</div>
+            </div>
+          </div>
+          <div class="actions">
+            <a id="contactLinkedinLink" class="btn secondary sm" href="#" target="_blank" rel="noopener noreferrer">Conectar en LinkedIn</a>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Grupo Sanguíneo (RH)</label>
-          <input type="text" name="rh" class="text-input" placeholder="O+">
+
+        <!-- Portafolio -->
+        <div class="contact-card" id="cardPortfolio">
+          <div class="contact-card-head">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 000 18M12 3a14 14 0 010 18"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title">Portafolio Web</div>
+              <div class="contact-card-value" id="contactPortfolioText">Sitio personal</div>
+            </div>
+          </div>
+          <div class="actions">
+            <a id="contactPortfolioLink" class="btn secondary sm" href="#" target="_blank" rel="noopener noreferrer">Visitar portafolio</a>
+          </div>
         </div>
-      </form>
+      </div>
     </section>
-
-    <div class="grid-2">
-      <section class="panel">
-        <h3 class="panel-title" style="margin-bottom:10px">Opción A: SDK JavaScript (React, Vue, HTML)</h3>
-        <p style="margin:0 0 10px;font-size:0.84rem;color:var(--muted)">
-          Importa <code>cedula-sdk.js</code> en cualquier frontend moderno sin dependencias de interfaz ni servidor:
-        </p>
-        <pre class="code-block">import {
-  CedulaReader,
-  parseAuto,
-  fillFormWithCedula
-} from './cedula-sdk.js';
-
-// 1. Escaneo desde archivo de imagen (PDF417 + respaldo MRZ)
-const reader = new CedulaReader();
-const { data } = await reader.scanFile(fileInput.files[0]);
-console.log(data.documentInfo.documentNumber, data.fullName);
-
-// 2. O auto-llenar un formulario HTML automáticamente
-fillFormWithCedula('#miFormulario', data);</pre>
-      </section>
-
-      <section class="panel">
-        <h3 class="panel-title" style="margin-bottom:10px">Opción B: Widget Embebible (<code>?mode=embed</code>)</h3>
-        <p style="margin:0 0 10px;font-size:0.84rem;color:var(--muted)">
-          Incrusta el lector en cualquier sistema mediante <code>&lt;iframe&gt;</code> o ventana emergente y recibe los datos por <code>postMessage</code>:
-        </p>
-        <pre class="code-block">&lt;iframe src="./index.html?mode=embed"
-        width="100%" height="580" frameborder="0"&gt;&lt;/iframe&gt;
-
-&lt;script&gt;
-window.addEventListener('message', (e) =&gt; {
-  if (e.data?.type === 'CEDULA_SCANNED') {
-    console.log('Cédula recibida:', e.data.data);
-  }
-});
-&lt;/script&gt;</pre>
-      </section>
-
-      <section class="panel">
-        <h3 class="panel-title" style="margin-bottom:10px">Opción C: Clase Nativa PHP (Autohospedado)</h3>
-        <p style="margin:0 0 10px;font-size:0.84rem;color:var(--muted)">
-          Si usas tu propio servidor PHP 8+ (Laravel, Symfony, WordPress), incluye <code>src/CedulaParser.php</code>:
-        </p>
-        <pre class="code-block">require_once 'src/CedulaParser.php';
-use CedulaApi\CedulaParser;
-
-// Detecta y parsea automáticamente PDF417 o MRZ TD1
-$datos = CedulaParser::parseAuto($cadenaLeida);
-echo $datos['documentInfo']['documentNumber'];
-echo $datos['fullName']; // Ej: VALENTINA SOFIA GARCIA RESTREPO</pre>
-      </section>
-
-      <section class="panel">
-        <h3 class="panel-title" style="margin-bottom:10px">Opción D: API REST PHP Opcional (<code>api.php</code>)</h3>
-        <p style="margin:0 0 10px;font-size:0.84rem;color:var(--muted)">
-          Para proyectos internos autohospedados, <code>api.php?action=parse</code> decodifica cadenas crudas en tu propio backend:
-        </p>
-        <pre class="code-block">// Decodificar PDF417 o MRZ en tu servidor privado
-const res = await fetch('api.php?action=parse', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ raw: cadenaCrudaPdf417oMrz })
-});
-const { ok, data } = await res.json();</pre>
-      </section>
-    </div>
   </div>
 
   <!-- ==================== SECCIÓN INFORMATIVA Y PRIVACIDAD ==================== -->
@@ -1152,10 +1246,26 @@ import {
   CedulaReader,
   parseAuto,
   escapeControlChars,
-  fillFormWithCedula,
   SAMPLE_PDF417_RAW,
   SAMPLE_MRZ_TEXT
 } from './cedula-sdk.js';
+
+// ---- Datos de contacto públicos (edita aquí tus datos reales; deja '' para ocultar cualquiera)
+const CONTACT_CONFIG = {
+  displayName: 'Juan Manuel Cardona Molina',
+  initials: 'JM',
+  email: 'tu-correo@ejemplo.com',
+  whatsappDigits: '573000000000', // Solo números con indicativo (+57), ej. '573001234567'
+  whatsappDisplay: '+57 300 000 0000',
+  whatsappMessage: 'Hola Juan Manuel, me interesa integrar el lector de cédula colombiana en mi proyecto.',
+  githubUsername: 'JuanManuelCM3331',
+  githubUrl: 'https://github.com/JuanManuelCM3331',
+  repoUrl: 'https://github.com/JuanManuelCM3331/Api-Lector-de-Cedula-Colombian',
+  linkedinUrl: 'https://www.linkedin.com/in/tu-perfil',
+  linkedinLabel: 'linkedin.com/in/tu-perfil',
+  portfolioUrl: 'https://tu-portafolio.com',
+  portfolioLabel: 'tu-portafolio.com'
+};
 
 const STORAGE_KEY = 'cedula_api_local_records_v1';
 const URL_PARAMS = new URLSearchParams(window.location.search);
@@ -1473,10 +1583,6 @@ function showScanResult({ data, raw, checks = {}, imageBlob = null, format = 'pd
 
   $('jsonOutput').textContent = JSON.stringify(data, null, 2);
 
-  if ($('demoClientForm')) {
-    fillFormWithCedula($('demoClientForm'), data);
-  }
-
   if (verifiedOk) {
     setStatus(`Lectura exitosa (${sourceBadge}): ${data.fullName || data.documentInfo.documentNumber}`, 'ok');
   } else {
@@ -1677,29 +1783,71 @@ $('btnSaveLocal')?.addEventListener('click', () => {
   }
 });
 
-$('btnFillDemoForm')?.addEventListener('click', () => {
-  if (!current) return;
-  const tabBtn = document.querySelector('.nav-tab[data-tab="integration"]');
-  if (tabBtn) tabBtn.click();
-  fillFormWithCedula($('demoClientForm'), current.data);
-});
-
-$('btnTestFillNow')?.addEventListener('click', () => {
-  if (!current) {
-    const parsed = parseAuto(SAMPLE_PDF417_RAW);
-    if (parsed) showScanResult(parsed);
-  }
-  if (current) {
-    fillFormWithCedula($('demoClientForm'), current.data);
-  }
-});
-
 $('btnSendCallback')?.addEventListener('click', () => {
   if (!current || !CALLBACK_URL) return;
   const url = new URL(CALLBACK_URL);
   url.searchParams.set('cedula_data', JSON.stringify(current.data));
   window.location.href = url.toString();
 });
+
+// ---- Inicializar sección de Contacto e Integración
+function initContactSection() {
+  if ($('contactAvatar')) $('contactAvatar').textContent = CONTACT_CONFIG.initials || 'JM';
+  if ($('contactDisplayName')) $('contactDisplayName').textContent = CONTACT_CONFIG.displayName;
+
+  const waDigits = (CONTACT_CONFIG.whatsappDigits || '').replace(/\D/g, '');
+  if (waDigits) {
+    const waUrl = `https://wa.me/${waDigits}?text=${encodeURIComponent(CONTACT_CONFIG.whatsappMessage || '')}`;
+    if ($('contactWhatsappText')) $('contactWhatsappText').textContent = CONTACT_CONFIG.whatsappDisplay || `+${waDigits}`;
+    if ($('contactWhatsappLink')) $('contactWhatsappLink').href = waUrl;
+    if ($('btnHeroWhatsapp')) $('btnHeroWhatsapp').href = waUrl;
+  } else {
+    if ($('cardWhatsapp')) $('cardWhatsapp').hidden = true;
+    if ($('btnHeroWhatsapp')) $('btnHeroWhatsapp').hidden = true;
+  }
+
+  if (CONTACT_CONFIG.email) {
+    const subject = encodeURIComponent('Cotización / Integración Lector de Cédula Colombiana');
+    if ($('contactEmailText')) $('contactEmailText').textContent = CONTACT_CONFIG.email;
+    if ($('contactEmailLink')) $('contactEmailLink').href = `mailto:${CONTACT_CONFIG.email}?subject=${subject}`;
+    $('btnCopyEmail')?.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(CONTACT_CONFIG.email);
+      renderStatusElement($('contactStatusBox'), `Correo copiado al portapapeles: ${CONTACT_CONFIG.email}`, 'ok');
+    });
+  } else if ($('cardEmail')) {
+    $('cardEmail').hidden = true;
+  }
+
+  if (CONTACT_CONFIG.githubUrl) {
+    if ($('contactGithubText')) $('contactGithubText').textContent = '@' + (CONTACT_CONFIG.githubUsername || 'GitHub');
+    if ($('contactGithubLink')) $('contactGithubLink').href = CONTACT_CONFIG.githubUrl;
+    if ($('contactRepoLink')) {
+      if (CONTACT_CONFIG.repoUrl) {
+        $('contactRepoLink').href = CONTACT_CONFIG.repoUrl;
+      } else {
+        $('contactRepoLink').hidden = true;
+      }
+    }
+  } else if ($('cardGithub')) {
+    $('cardGithub').hidden = true;
+  }
+
+  if (CONTACT_CONFIG.linkedinUrl) {
+    if ($('contactLinkedinText')) $('contactLinkedinText').textContent = CONTACT_CONFIG.linkedinLabel || CONTACT_CONFIG.linkedinUrl;
+    if ($('contactLinkedinLink')) $('contactLinkedinLink').href = CONTACT_CONFIG.linkedinUrl;
+  } else if ($('cardLinkedin')) {
+    $('cardLinkedin').hidden = true;
+  }
+
+  if (CONTACT_CONFIG.portfolioUrl) {
+    if ($('contactPortfolioText')) $('contactPortfolioText').textContent = CONTACT_CONFIG.portfolioLabel || CONTACT_CONFIG.portfolioUrl;
+    if ($('contactPortfolioLink')) $('contactPortfolioLink').href = CONTACT_CONFIG.portfolioUrl;
+  } else if ($('cardPortfolio')) {
+    $('cardPortfolio').hidden = true;
+  }
+}
+
+initContactSection();
 
 // ---- Historial de Registros Locales
 function refreshSavedBadge() {
