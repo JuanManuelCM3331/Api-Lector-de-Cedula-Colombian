@@ -1,4 +1,4 @@
-# 🪪 Cédula Colombiana API & SDK (v2.0 Universal)
+#  Cédula Colombiana API & SDK (v2.0 Universal)
 
 Sistema completo, ligero y adaptable a **cualquier tipo de proyecto** para escanear, decodificar, validar y almacenar datos de documentos de identidad colombianos (**Cédula de Ciudadanía Amarilla**, **Cédula Digital Policarbonato** y **Tarjeta de Identidad**).
 
@@ -6,7 +6,7 @@ Soporta lectura de **código de barras 2D PDF417**, **zona MRZ TD1 (ICAO 9303)**
 
 ---
 
-## ✨ Características Principales
+##  Características Principales
 
 - **100% Privado en el Navegador (`index.html`)**: El escaneo de PDF417, OCR MRZ, historial (`localStorage`) y exportación a Excel/JSON funcionan **exclusivamente en el dispositivo del usuario**, sin subir fotos ni guardar cédulas en ningún servidor. Listo para publicar gratis en **GitHub Pages, Cloudflare Pages, Netlify o Vercel** (con HTTPS incluido para la cámara).
 - **Adaptable a cualquier proyecto (4 modos de integración)**:
@@ -24,7 +24,7 @@ Soporta lectura de **código de barras 2D PDF417**, **zona MRZ TD1 (ICAO 9303)**
 
 ---
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```text
 Cedula_api/
@@ -42,7 +42,7 @@ Cedula_api/
 
 ---
 
-## 🚀 Ejecución Rápida y Publicación Gratis
+##  Ejecución Rápida
 
 ### Opción 1: Publicar como web pública 100% privada (sin servidor)
 Solo necesitas subir los archivos estáticos (`index.html`, `cedula-sdk.js`, `mrz.js`) a **GitHub Pages, Cloudflare Pages, Netlify o Vercel**. Todos incluyen **HTTPS gratis** (necesario para la cámara) y ningún dato sale del navegador del usuario.
@@ -61,7 +61,7 @@ npx serve .
 
 ---
 
-## 🔌 Cómo Adaptarlo a tu Proyecto
+##  Cómo Adaptarlo a tu Proyecto
 
 ### 1. En Frontend (JavaScript / React / Vue / HTML)
 
@@ -126,7 +126,7 @@ if ($datos !== null) {
 
 ---
 
-## ⚙️ Configuración (`config.php` / Variables de Entorno)
+##  Configuración (`config.php` / Variables de Entorno)
 
 | Variable de Entorno | Clave en `config.php` | Por defecto | Descripción |
 | :--- | :--- | :--- | :--- |
@@ -138,7 +138,7 @@ if ($datos !== null) {
 
 ---
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto está distribuido bajo la licencia **GNU General Public License v3.0 (GPL-3.0)** — Consulta el archivo [`LICENSE`](./LICENSE) para el texto legal completo.
 
