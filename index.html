@@ -4,10 +4,79 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lector de Cédula Colombiana Online · 100% Privado (PDF417, MRZ, JSON y Excel)</title>
+<meta name="google-site-verification" content="f_NecrfM8y6ZiDs73lrZRRKDZztoP_KACjeCJZDpOHQ" />
 <meta name="description" content="Escanea y extrae datos de la Cédula de Ciudadanía Colombiana (Amarilla PDF417, Cédula Digital MRZ y Tarjeta de Identidad) a JSON o Excel CSV. 100% privado: todo se procesa y guarda solo en tu navegador, sin subir datos a ningún servidor.">
+<meta name="keywords" content="lector cedula colombiana, escanear cedula colombiana online, pdf417 cedula colombia, decodificar cedula digital mrz, cedula colombiana a excel, cedula a json, lector codigo de barras cedula colombia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://juanmanuelcm3331.github.io/Api-Lector-de-Cedula-Colombian/">
 <meta property="og:title" content="Lector de Cédula Colombiana Online · 100% Privado">
 <meta property="og:description" content="Decodifica PDF417 y MRZ de cédulas colombianas en tu navegador y exporta a JSON o Excel CSV sin enviar información a servidores.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://juanmanuelcm3331.github.io/Api-Lector-de-Cedula-Colombian/">
+<meta property="og:locale" content="es_CO">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Lector de Cédula Colombiana Online",
+      "url": "https://juanmanuelcm3331.github.io/Api-Lector-de-Cedula-Colombian/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es-CO",
+      "description": "Herramienta gratuita y 100% privada en el navegador para leer el código de barras PDF417 y la zona MRZ de la cédula colombiana (amarilla, digital y tarjeta de identidad) y exportar los datos a JSON o Excel CSV.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "COP"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Juan Manuel Cardona Molina",
+        "url": "https://juanmanuelcm3331.github.io/CV-Landing/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Los datos o fotos de mi cédula se guardan en algún servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Todo el escaneo (PDF417, OCR MRZ y pistola lectora USB) ocurre directamente en tu navegador. Si guardas registros en el historial, se almacenan únicamente en el localStorage de tu propio computador o celular y nadie más puede verlos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué documentos colombianos puedo escanear?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Soporta la Cédula de Ciudadanía Amarilla clásica (código de barras PDF417), la Tarjeta de Identidad (PDF417) y la nueva Cédula Digital en policarbonato (zona MRZ TD1 estándar ICAO 9303)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo exportar las cédulas escaneadas a Excel o JSON?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes descargar cada lectura individual o todo tu historial local en formato CSV compatible con Microsoft Excel y Google Sheets, o en formato JSON estructurado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Funciona con pistolas lectoras de código de barras 2D USB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. En la pestaña Lector USB / Texto puedes escanear directamente con cualquier lector de código de barras 2D por USB (HID) para extraer los datos al instante."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f4c81'/%3E%3Crect x='5' y='8' width='22' height='16' rx='3' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='11.5' cy='15' r='2.2' fill='%23eab308'/%3E%3Cpath d='M17 13h6M17 17h6M10 20h13' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 <script>
   (function () {
@@ -1233,6 +1302,34 @@
         <h3>Exportación a Excel y JSON</h3>
         <p>Guarda un listado temporal en tu equipo para recepciones, eventos o formularios, y descarga todo tu historial en formato <strong>CSV compatible con Excel</strong> o <strong>JSON</strong>.</p>
       </div>
+    </div>
+
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+      <h3 style="margin:0 0 8px;font-size:0.98rem;color:var(--ink)">Preguntas frecuentes</h3>
+      <details>
+        <summary>¿Los datos o fotos de mi cédula se guardan en algún servidor?</summary>
+        <p style="margin:8px 0 0;font-size:0.85rem;color:var(--muted)">
+          No. Todo el procesamiento del código PDF417, OCR MRZ y lectura con pistola USB ocurre localmente en tu navegador. Los registros que decidas guardar quedan solo en el <code>localStorage</code> de tu propio equipo.
+        </p>
+      </details>
+      <details>
+        <summary>¿Cómo escanear la cédula colombiana a Excel o JSON?</summary>
+        <p style="margin:8px 0 0;font-size:0.85rem;color:var(--muted)">
+          Sube la foto del reverso, usa la cámara en vivo o escanea con una pistola lectora 2D USB. Luego pulsa <strong>Descargar .CSV</strong> (compatible con Excel), <strong>Descargar .JSON</strong> o guarda varios registros para exportarlos juntos desde <em>Mis Registros</em>.
+        </p>
+      </details>
+      <details>
+        <summary>¿Sirve tanto para la Cédula Amarilla como para la Cédula Digital de Colombia?</summary>
+        <p style="margin:8px 0 0;font-size:0.85rem;color:var(--muted)">
+          Sí. Decodifica automáticamente el código de barras <strong>PDF417</strong> de la Cédula Amarilla y Tarjeta de Identidad, y las 3 líneas <strong>MRZ TD1</strong> del reverso de la Cédula Digital en policarbonato.
+        </p>
+      </details>
+      <details>
+        <summary>¿Puedo integrar este lector en el sistema de mi empresa?</summary>
+        <p style="margin:8px 0 0;font-size:0.85rem;color:var(--muted)">
+          Sí. Entra a la pestaña <strong>Integrar en tu Proyecto</strong> para cotizar la integración en tu web, ERP, hotel, clínica o portería directamente por WhatsApp o correo electrónico.
+        </p>
+      </details>
     </div>
   </section>
 

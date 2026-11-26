@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://juanmanuelcm3331.github.io/Api-Lector-de-Cedula-Colombian/sitemap.xml
