@@ -1,3 +1,6 @@
+# Priorizar la versión estática 100% local en el navegador
+DirectoryIndex index.html index.php
+
 # Deshabilitar listado de directorios
 Options -Indexes
 

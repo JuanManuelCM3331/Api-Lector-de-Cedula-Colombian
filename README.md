@@ -8,11 +8,12 @@ Soporta lectura de **código de barras 2D PDF417**, **zona MRZ TD1 (ICAO 9303)**
 
 ##  Características Principales
 
+- **100% Privado en el Navegador (`index.html`)**: El escaneo de PDF417, OCR MRZ, historial (`localStorage`) y exportación a Excel/JSON funcionan **exclusivamente en el dispositivo del usuario**, sin subir fotos ni guardar cédulas en ningún servidor. Listo para publicar gratis en **GitHub Pages, Cloudflare Pages, Netlify o Vercel** (con HTTPS incluido para la cámara).
 - **Adaptable a cualquier proyecto (4 modos de integración)**:
   1. **SDK JavaScript Universal (`cedula-sdk.js` / `mrz.js`)**: ES Module sin dependencias de framework (compatible con React, Vue, Angular, Astro o HTML/JS puro).
-  2. **API REST Completa (`api.php` / `guardar.php`)**: Endpoints JSON con soporte CORS, autenticación por CSRF o API Key (`X-API-Key` / `Bearer`), Webhooks y exportación a CSV (Excel) / JSON.
-  3. **Motor PHP Nativo (`src/CedulaParser.php`)**: Clase independiente en PHP 8+ lista para importar en Laravel, Symfony, WordPress o proyectos legacy para decodificar PDF417 y MRZ directamente en el backend.
-  4. **Widget Embebible (`index.php?mode=embed`)**: Incrustable vía `<iframe>` o popup en cualquier ERP/CRM, emitiendo resultados en tiempo real por `window.postMessage`.
+  2. **Widget Embebible (`index.html?mode=embed`)**: Incrustable vía `<iframe>` o popup en cualquier ERP/CRM, emitiendo resultados en tiempo real por `window.postMessage`.
+  3. **Motor PHP Nativo (`src/CedulaParser.php`)**: Clase independiente en PHP 8+ lista para importar en Laravel, Symfony, WordPress o proyectos legacy para decodificar PDF417 y MRZ en tu propio servidor.
+  4. **API REST Opcional Autohospedada (`api.php` / `guardar.php`)**: Endpoints JSON con soporte CORS, autenticación por CSRF o API Key (`X-API-Key` / `Bearer`), Webhooks y exportación a CSV / JSON (solo si decides instalar un backend privado).
 - **Múltiples métodos de captura**:
   - **Subida de imagen / Drag & Drop / Portapapeles (`Ctrl + V`)** con pre-procesamiento multi-escala, recorte inteligente, alto contraste y rotación de 180°.
   - **Cámara en vivo** con guía visual y captura de fotograma para MRZ (Cédula Digital).
@@ -27,25 +28,32 @@ Soporta lectura de **código de barras 2D PDF417**, **zona MRZ TD1 (ICAO 9303)**
 
 ```text
 Cedula_api/
-├── index.php              # Interfaz moderna (Escáner, Tarjeta Visual, Historial y Hub de Integración)
-├── api.php                # API REST (health, parse, save, list, get, delete, export CSV/JSON)
-├── guardar.php            # Endpoint clásico de guardado (100% retrocompatible)
-├── config.php             # Configuración central (driver JSON/SQLite, CORS, API Key, Webhook)
+├── index.html             # Interfaz web estática 100% local (Escáner, Historial localStorage, Hub)
+├── index.php              # Punto de entrada retrocompatible para PHP/XAMPP (sirve index.html)
 ├── cedula-sdk.js          # SDK JavaScript (ES Module): PDF417 + MRZ + Auto-fill de formularios
 ├── mrz.js                 # Parser ICAO 9303 TD1 + validación de dígitos + respaldo OCR Cédula Amarilla
+├── api.php                # API REST opcional para despliegues propios con backend PHP
+├── guardar.php            # Endpoint clásico de guardado (opcional, retrocompatible)
+├── config.php             # Configuración del backend opcional (JSON/SQLite, CORS, API Key, Webhook)
 ├── src/
 │   └── CedulaParser.php   # Clase PHP 8+ independiente para parsear PDF417 y MRZ en el servidor
-└── storage/               # Almacenamiento protegido por .htaccess
+└── storage/               # Almacenamiento local opcional (protegido por .htaccess)
 ```
 
 ---
 
 ##  Ejecución Rápida
 
-Con el servidor integrado de PHP o desde XAMPP/Apache/Nginx:
+### Opción 1: Publicar como web pública 100% privada (sin servidor)
+Solo necesitas subir los archivos estáticos (`index.html`, `cedula-sdk.js`, `mrz.js`) a **GitHub Pages, Cloudflare Pages, Netlify o Vercel**. Todos incluyen **HTTPS gratis** (necesario para la cámara) y ningún dato sale del navegador del usuario.
+
+### Opción 2: Probar en local
+Con el servidor integrado de PHP, Python, Node o XAMPP/Apache/Nginx:
 
 ```bash
 php -S localhost:8000
+# o sin PHP:
+npx serve .
 # Abre http://localhost:8000 en tu navegador
 ```
 
